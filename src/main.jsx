@@ -6,17 +6,20 @@ import { IndexPage } from './pages/indexPage.jsx'
 import {Layout} from './components/layout.jsx'
 import {ContactPage}  from './pages/contactPage.jsx'
 import { LoginPage } from './pages/loginPage.jsx'
+import { RoomPage } from './pages/roomPage.jsx'
+import { Provider } from 'react-redux'
+import { store } from './app/store.js'
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <BrowserRouter>
-        <Routes>
-          <Route path='/login' element={<LoginPage/>}/>
-          <Route element={<Layout/>}>
-            <Route path='/' element={<IndexPage/>}/>
-            <Route path='/contact' element={<ContactPage/>}/>
-          </Route>
-        </Routes>
-    </BrowserRouter>
+    <Provider store={store}>
+      <BrowserRouter>
+          <Routes>
+            <Route path='/login' element={<LoginPage/>}/>
+            <Route path="" element={<IndexPage/>}/>
+            <Route path="room" element={<RoomPage/>}/>
+          </Routes>
+      </BrowserRouter>
+    </Provider>
   </React.StrictMode>,
 )
